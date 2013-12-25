@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+If you want `meta_data` field to serialize with MessagePack, use `serialize` like the follow:
+
+```ruby
+class Post < ActiveRecord::Base
+  serialize :meta_data, ActiveRecord::Serializers::MessagePackSerializer
+
+  # ...
+end
+```
 
 ## Contributing
 
