@@ -16,7 +16,7 @@ describe ActiveRecord::Serializers::MessagePackSerializer do
 
     context "with valid binary string" do
       let(:binary) do
-        "\x92\xA3foo*".b # == ["foo", 42].to_smgpack
+        "\x92\xA3foo*".force_encoding("ASCII-8BIT") # == ["foo", 42].to_smgpack
       end
 
       it "returns valid data" do
@@ -35,7 +35,7 @@ describe ActiveRecord::Serializers::MessagePackSerializer do
     end
 
     it "returns valid binary string" do
-      should == "\x92\xA3foo*".b
+      should == "\x92\xA3foo*".force_encoding("ASCII-8BIT")
     end
   end
 end

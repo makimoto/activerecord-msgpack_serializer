@@ -6,11 +6,11 @@ class MessagePackSerializer
   class << self
     def load(binary)
       return nil if binary.match(/\A[[:space:]]*\z/)
-      MessagePack.unpack(binary.b)
+      MessagePack.unpack(binary.force_encoding("ASCII-8BIT"))
     end
 
     def dump(obj)
-      MessagePack.pack(obj).b
+      MessagePack.pack(obj).force_encoding("ASCII-8BIT")
     end
   end
 end
