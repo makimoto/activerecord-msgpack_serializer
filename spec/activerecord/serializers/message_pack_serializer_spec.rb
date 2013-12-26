@@ -6,6 +6,14 @@ describe ActiveRecord::Serializers::MessagePackSerializer do
       described_class.load(binary)
     end
 
+    context "with nil" do
+      let(:binary) do
+        nil
+      end
+
+      it { should be_nil }
+    end
+
     context "with blank data" do
       let(:binary) do
         ""

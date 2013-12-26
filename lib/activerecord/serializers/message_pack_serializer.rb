@@ -5,7 +5,7 @@ module Serializers
 class MessagePackSerializer
   class << self
     def load(binary)
-      return nil if binary.match(/\A[[:space:]]*\z/)
+      return nil if binary.nil? || binary.match(/\A[[:space:]]*\z/)
       MessagePack.unpack(binary.force_encoding("ASCII-8BIT"))
     end
 
