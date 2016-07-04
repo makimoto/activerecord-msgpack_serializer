@@ -1,3 +1,4 @@
+require_relative './message_pack_serializer/version'
 require 'active_record'
 require 'msgpack'
 
